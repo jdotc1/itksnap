@@ -66,7 +66,7 @@ jobs:
       fail-fast: false
       matrix:
         # Intel and ARM builds for each platform
-        os: [ubuntu-24.04,ubuntu-24.04-arm,macos-15-intel,macos-15,windows-2022,windows-11-arm]
+        os: [ubuntu-24.04]  # TEMPORARY: only the Rocky 8 job while testing it
         # ITK before 5.4.6 does not compile for Windows arm64: GDCM's gdcmFilename.cxx includes
         # windows.h inside namespace gdcm, which breaks the inline _Interlocked* functions
         # that the Windows SDK defines on arm64
@@ -83,32 +83,7 @@ jobs:
             qt_host: linux
             qt_arch: linux_gcc_64
             ctest_cmd: xvfb-run -a ctest
-          # Qt's arm64 Linux binaries require glibc 2.38, so this one can't use an older distro
-          - os: ubuntu-24.04-arm
-            qt_host: linux_arm64
-            qt_arch: linux_gcc_arm64
-            ctest_cmd: xvfb-run -a ctest
-          - os: macos-15-intel
-            qt_host: mac
-            qt_arch: clang_64
-            ctest_cmd: ctest
-          - os: macos-15
-            qt_host: mac
-            qt_arch: clang_64
-            ctest_cmd: ctest
-          - os: windows-2022
-            qt_host: windows
-            qt_arch: win64_msvc2022_64
-            msvc_arch: x64
-            vcpkg_triplet: x64-windows-release
-            ctest_cmd: ctest
-          # vcpkg has no release-only triplet for arm64, so it builds debug and release
-          - os: windows-11-arm
-            qt_host: windows_arm64
-            qt_arch: win64_msvc2022_arm64
-            msvc_arch: arm64
-            vcpkg_triplet: arm64-windows
-            ctest_cmd: ctest
+          # TEMPORARY: other platforms removed while testing the Rocky 8 job
 
     steps:
 
