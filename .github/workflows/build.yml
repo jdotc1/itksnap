@@ -159,8 +159,10 @@ jobs:
           arch: ${{ matrix.qt_arch }}
           cache: true
           extra: '--timeout 60'
-          # actions/setup-python's builds are for Ubuntu; the container installs Python 3.11
+          # The container installs Python 3.11 and Qt's dependencies itself: actions/setup-python's
+          # builds are for Ubuntu, and the action installs the dependencies with apt-get
           setup-python: ${{ !matrix.container }}
+          install-deps: ${{ !matrix.container }}
 
       # Use cached VTK build if available
       - name: Restore VTK Cache
