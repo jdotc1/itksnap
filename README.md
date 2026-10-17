@@ -1,3 +1,13 @@
+## Interactive segmentation of 3D medical images
+
+This is a development fork of [ITK-SNAP](https://github.com/pyushkevich/itksnap), a desktop application for segmenting three-dimensional medical images. The upstream project offers an interactive environment for delineating anatomical structures, with tutorials and example images that help researchers learn its segmentation workflow.
+
+**Contribution to review:** [PR #280](https://github.com/pyushkevich/itksnap/pull/280) proposes quoting application paths in the macOS launcher.
+
+Begin with the [official downloads](http://www.itksnap.org/download/snap) and [tutorials](http://www.itksnap.org/pmwiki/pmwiki.php?n=Documentation.HomePage). Source-build instructions, the project's citation, and developer resources remain in the README below. The [branch comparison](https://github.com/pyushkevich/itksnap/compare/master...jdotc1:master) shows this fork's default branch; the linked proposal documents the macOS work.
+
+---
+
 ITK-SNAP README
 -----------------
 
